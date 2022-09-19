@@ -1,0 +1,31 @@
+### Jar (Application) compressed zip
+stack/openjdk/tmp/*.zip
+
+### Scala template
+*.class
+*.log
+.ensime_cache
+.ensime
+ensime.sbt
+.bsp/
+# sbt specific
+.cache
+.history
+.lib/
+.vscode/
+target/
+dist/*
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+native/
+
+# Scala-IDE specific
+.scala_dependencies
+.worksheet
+.idea
+.terraform/
+terraform.tfstate.d/
+
+/lib/
