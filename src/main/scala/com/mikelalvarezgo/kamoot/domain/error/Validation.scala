@@ -17,6 +17,7 @@ object Validation {
   implicit final class ValidationValidIdSyntax[A](val a: A) extends AnyVal {
     def validValidation[B]: Validation[A] = Validated.Valid(a)
   }
+
   implicit final class ValidationInvalidIdSyntax(val e: ValidationError) extends AnyVal {
     def invalidValidation[A]: Validation[A] = Validated.invalidNel(e)
   }

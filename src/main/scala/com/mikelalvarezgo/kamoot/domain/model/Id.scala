@@ -1,13 +1,11 @@
 package com.mikelalvarezgo.kamoot.domain.model
 
-import java.util.UUID
 import scala.util.Try
 
-abstract class Id(value: UUID) {
-  val raw: String = value.toString
+abstract class Id(value: String) {
+  def raw = value.toLong
 }
 
 object Id {
-  def isValid(value: String): Boolean = Try(UUID.fromString(value)).isSuccess
-  def genRaw: String                  = UUID.randomUUID().toString
+  def isValid(value: String): Boolean = Try(value.toLong).isSuccess
 }

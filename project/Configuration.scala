@@ -1,7 +1,6 @@
 import org.scalafmt.sbt.ScalafmtPlugin.autoImport._
-import sbt.Keys._
 import sbt._
-import sbt.nio.Keys._
+import sbt.Keys._
 
 object Configuration {
   lazy val tb = taskKey[Unit]("Launch behaviour tests")
@@ -13,6 +12,7 @@ object Configuration {
     version := "1.0.0",
     scalaVersion := "2.13.8",
     Compile / doc / sources := Seq.empty,
+    crossScalaVersions := Nil,
     Compile / packageDoc / publishArtifact := false,
     scalacOptions := {
       val default = Seq(
@@ -31,8 +31,12 @@ object Configuration {
       if (version.value.endsWith("SNAPSHOT")) default :+ "-Xcheckinit" else default
       // check against early initialization
     },
+    javaOptions := Seq(
+      "-Duser.timezone=UTC",
+      "-Xmx2048M",
+      "-Xss2M"),
     // Scalafmt
     scalafmtConfig := file(".scalafmt.conf"),
-	)
+  )
 
 }

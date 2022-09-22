@@ -12,6 +12,7 @@ object SyntaxUtils {
 
   implicit class OptionTOps[A](val value: A) {
     def someT[P[_]: Monad]: OptionT[P, A] = OptionT.some(value)
+
     def noneT[P[_]: Monad]: OptionT[P, A] = OptionT.none
   }
 
