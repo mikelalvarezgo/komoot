@@ -25,7 +25,7 @@ object Main extends App {
     new HttpNotificationClient(NotificationApiConfig.fromConfig(config.getConfig("notification-api")))
 
   val credentialsProvider = StaticCredentialsProvider.create(
-    AwsBasicCredentials.create("AKIA3DZULSSUR55ZUWFJ", "XOcRezqJMUEhZByd26S5O5AhQS+lbQsApUm2uptG")
+    AwsBasicCredentials.create(config.getString("aws.key-id"), config.getString("aws.secret-key"))
   )
 
   implicit val awsSqsClient: SqsAsyncClient = SqsAsyncClient
