@@ -17,7 +17,7 @@
 
 The project include a makefile for facilate the build, execution and execution of the test.
   - make build = Donwload dependencies, compile and build the project.
-  - make run = Execute application
+  - make run = Execute application (for executing it, it is needed to replace AWS credentials and SQS url)
   - make test = Execute test
 
 ## Test approach
@@ -29,5 +29,10 @@ The challenge include the next types of tests:
   - Integration test: Test that checks the integration with an external provider( in this case HttpClient)
 
  There is no Acceptance test(E2E) included because it was out of the scope for this challenge.
+
+## Future improvements
+  - Add E2E tests.
+  - Recovery control in queue consumptionÇ(retries policy, deadletter queue ...).
+  - Monitoring 
 
 
